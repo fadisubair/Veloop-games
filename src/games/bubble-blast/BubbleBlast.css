@@ -1,0 +1,105 @@
+.bubble-blast-game {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--color-bg-primary);
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bubble-board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  border-bottom: none;
+}
+
+.board-columns {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 10;
+}
+
+.board-column {
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.board-column:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.bubble {
+  position: absolute;
+  padding: 3px;
+  transition: top 0.15s linear, left 0.3s ease;
+  z-index: 5;
+  pointer-events: none; /* Let columns handle clicks */
+}
+
+.bubble-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.4), inset 5px 5px 10px rgba(255,255,255,0.4);
+}
+
+.shooter-area {
+  background: var(--color-bg-tertiary);
+  padding: 1rem;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border: 2px solid var(--color-border);
+  border-top: 1px solid var(--color-border-focus);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shooter-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.next-bubble, .current-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bubble-preview {
+  border-radius: 50%;
+  box-shadow: inset -3px -3px 6px rgba(0,0,0,0.4), inset 3px 3px 6px rgba(255,255,255,0.4);
+}
+
+.next-bubble .bubble-preview {
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+}
+
+.current-bubble .bubble-preview {
+  width: 60px;
+  height: 60px;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.4), inset 5px 5px 10px rgba(255,255,255,0.4), 0 0 15px rgba(255,255,255,0.2);
+}
+
+.next-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  letter-spacing: 1px;
+}
